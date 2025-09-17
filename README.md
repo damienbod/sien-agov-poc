@@ -1,5 +1,6 @@
 # SIEN AGOV PoC
 
+[![.NET](https://github.com/damienbod/sien-agov-poc/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/sien-agov-poc/actions/workflows/dotnet.yml)
 
 ![Architecture](https://github.com/damienbod/sien-agov-poc/blob/main/images/architecture.drawio.png)
 
