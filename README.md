@@ -9,6 +9,7 @@
 - Can we activate OAuth PAR using AGOV?
 - Can we use OAuth DPoP tokens?
 - Can we request phishing resistant authentication
+- Can we use client assertions instead of shared secrets?
 
 ## LoA with E-ID
 
@@ -26,7 +27,7 @@
 - urn:qa.agov.ch:names:tc:ac:classes:200
 - urn:qa.agov.ch:names:tc:ac:classes:300
 - urn:qa.agov.ch:names:tc:ac:classes:400
-- urn:qa.agov.ch:names:tc:ac:classes:500
+- urn:qa.agov.ch:names:tc:ac:classes:500 => request for E-ID identity
 - urn:qa.agov.ch:names:tc:ac:classes:600
 
 ## AGOV testing
