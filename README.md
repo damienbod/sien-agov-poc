@@ -1,6 +1,8 @@
 # SIEN AGOV PoC
 
 
+![Architecture](https://github.com/damienbod/sien-agov-poc/blob/main/images/architecture.drawio.png)
+
 ## Questions 
 
 - Can we activate OAuth PAR
