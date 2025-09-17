@@ -30,3 +30,7 @@
 - urn:qa.agov.ch:names:tc:ac:classes:600
 
 ## Links
+
+- https://swiyu-admin-ch.github.io/
+- https://help.agov.ch/?c=login&l=de
+- https://www.agov.admin.ch/
