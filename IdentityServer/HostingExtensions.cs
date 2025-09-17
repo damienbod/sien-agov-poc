@@ -73,12 +73,12 @@ internal static class HostingExtensions
 
             oidcOptions.Events = new OpenIdConnectEvents
             {
-                //OnTokenResponseReceived = context =>
-                //{
-                //    var idToken = context.TokenEndpointResponse.IdToken;
-                //    return Task.CompletedTask;
-                //},
-               
+                OnTokenResponseReceived = context =>
+                {
+                    var idToken = context.TokenEndpointResponse.IdToken;
+                    return Task.CompletedTask;
+                },
+
                 OnRedirectToIdentityProvider = context =>
                 {
                     //context.ProtocolMessage.SetParameter("audience", "XXXXXXX");
