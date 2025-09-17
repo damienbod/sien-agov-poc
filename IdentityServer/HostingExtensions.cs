@@ -1,6 +1,7 @@
 using Duende.IdentityServer;
 using DuendeProfileServiceAspNetCoreIdentity.Data;
 using DuendeProfileServiceAspNetCoreIdentity.Models;
+using IdentityServer;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -46,10 +47,53 @@ internal static class HostingExtensions
             options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
             options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
         })
-        //.AddOpenIdConnect("agov", "agov", options =>
-        //{
-        //    // TODO
-        //})
+        .AddOpenIdConnect("agov", "agov", oidcOptions =>
+        {
+            oidcOptions.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+            oidcOptions.SignOutScheme = IdentityConstants.ApplicationScheme;
+
+            oidcOptions.CallbackPath = new PathString("/signin-agov");
+            oidcOptions.RemoteSignOutPath = new PathString("/signout-callback-agov");
+            oidcOptions.SignedOutCallbackPath = new PathString("/signout-agov");
+
+            oidcOptions.Scope.Add(OpenIdConnectScope.OpenIdProfile);
+            oidcOptions.Scope.Add("agovProfile");
+            oidcOptions.Scope.Add(OpenIdConnectScope.Email);
+
+            oidcOptions.Authority = builder.Configuration["agov:Authority"];
+            oidcOptions.ClientId = builder.Configuration["agov:ClientId"];
+            oidcOptions.ClientSecret = builder.Configuration["agov:ClientSecret"];
+            oidcOptions.ResponseType = OpenIdConnectResponseType.Code;
+            oidcOptions.MapInboundClaims = false;
+            oidcOptions.SaveTokens = true;
+            oidcOptions.GetClaimsFromUserInfoEndpoint = false;
+
+            oidcOptions.TokenValidationParameters.NameClaimType = JwtRegisteredClaimNames.Name;
+            oidcOptions.TokenValidationParameters.RoleClaimType = "role";
+
+            oidcOptions.Events = new OpenIdConnectEvents
+            {
+                //OnTokenResponseReceived = context =>
+                //{
+                //    var idToken = context.TokenEndpointResponse.IdToken;
+                //    return Task.CompletedTask;
+                //},
+               
+                OnRedirectToIdentityProvider = context =>
+                {
+                    //context.ProtocolMessage.SetParameter("audience", "XXXXXXX");
+                    context.ProtocolMessage.AcrValues = Consts.AGOV_TC_AC_300;
+                    //context.ProtocolMessage.SetParameter(DotNetIdClaimTypes.ACR_VALUES, Consts.AGOV_TC_AC_300);
+                    return Task.FromResult(0);
+                },
+
+                // handle the logout redirection 
+                //OnRedirectToIdentityProviderForSignOut = (context) =>
+                //{
+                //    return Task.CompletedTask;
+                //}
+            };
+        })
         .AddOpenIdConnect("Auth0Scheme", "Auth0", options =>
         {
             options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
@@ -79,11 +123,8 @@ internal static class HostingExtensions
                 {
                     var idToken = context.TokenEndpointResponse.IdToken;
                     return Task.CompletedTask;
-                }
-            };
+                },
 
-            options.Events = new OpenIdConnectEvents
-            {
                 // handle the logout redirection 
                 OnRedirectToIdentityProviderForSignOut = (context) =>
                 {
