@@ -29,6 +29,14 @@
 - urn:qa.agov.ch:names:tc:ac:classes:500
 - urn:qa.agov.ch:names:tc:ac:classes:600
 
+## AGOV testing
+
+https://trustbroker-idp.agov-epr-lab.azure.adnovum.net/
+
+https://trustbroker.agov-epr-lab.azure.adnovum.net/.well-known/openid-configuration
+
+https://me.agov-epr-lab.azure.adnovum.net/
+
 ## Links
 
 - https://swiyu-admin-ch.github.io/
