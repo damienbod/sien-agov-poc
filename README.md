@@ -11,13 +11,12 @@
 - Can we request phishing resistant authentication
 - Can we use client assertions instead of shared secrets?
 - Which client are E-ID claims
-- AHV number not returned
 
 ## LoA with E-ID
 
 urn:qa.agov.ch:names:tc:ac:classes:500 => agov & E-ID
 
-urn:qa.agov.ch:names:tc:ac:classes:600 => Only E-ID only claims E-ID agov
+urn:qa.agov.ch:names:tc:ac:classes:600 => Only E-ID only claims E-ID agov (pass through)
 
 ## Authentication flow
 
