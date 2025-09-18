@@ -59,6 +59,7 @@ internal static class HostingExtensions
             oidcOptions.Scope.Add(OpenIdConnectScope.OpenIdProfile);
             oidcOptions.Scope.Add("agovProfile");
             oidcOptions.Scope.Add(OpenIdConnectScope.Email);
+            oidcOptions.Scope.Add("svnr");
 
             oidcOptions.Authority = builder.Configuration["agovlab:Authority"];
             oidcOptions.ClientId = builder.Configuration["agovlab:ClientId"];
