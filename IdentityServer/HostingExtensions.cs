@@ -82,7 +82,7 @@ internal static class HostingExtensions
 
                 OnRedirectToIdentityProvider = context =>
                 {
-                    context.ProtocolMessage.AcrValues = Consts.AGOV_TC_AC_600;
+                    context.ProtocolMessage.AcrValues = Consts.AGOV_TC_AC_500;
                     return Task.FromResult(0);
                 },
 
