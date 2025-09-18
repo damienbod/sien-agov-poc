@@ -11,12 +11,35 @@
 - Can we request phishing resistant authentication
 - Can we use client assertions instead of shared secrets?
 - Which client are E-ID claims
-- 
+- AHV number not returned
+
 ## LoA with E-ID
+
+urn:qa.agov.ch:names:tc:ac:classes:500 => agov & E-ID
+
+urn:qa.agov.ch:names:tc:ac:classes:600 => Only E-ID only claims E-ID agov
 
 ## Authentication flow
 
 ## Registration flow
+
+- same as authentication flow
+
+### Send 500:
+
+AGOV 
+
+#### Already exist with 300 or less
+
+link to required E-ID
+
+#### User does not exist (500)
+
+Does not work, please create AGOV account first
+
+#### AGOV 600 (pass through)
+
+just works
 
 ## Step Up Flow
 
