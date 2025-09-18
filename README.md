@@ -10,7 +10,8 @@
 - Can we use OAuth DPoP tokens?
 - Can we request phishing resistant authentication
 - Can we use client assertions instead of shared secrets?
-
+- Which client are E-ID claims
+- 
 ## LoA with E-ID
 
 ## Authentication flow

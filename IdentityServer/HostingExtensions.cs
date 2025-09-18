@@ -47,22 +47,22 @@ internal static class HostingExtensions
             options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
             options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
         })
-        .AddOpenIdConnect("agov", "agov", oidcOptions =>
+        .AddOpenIdConnect("agovlab", "agovlab", oidcOptions =>
         {
             oidcOptions.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
             oidcOptions.SignOutScheme = IdentityConstants.ApplicationScheme;
 
-            oidcOptions.CallbackPath = new PathString("/signin-agov");
-            oidcOptions.RemoteSignOutPath = new PathString("/signout-callback-agov");
-            oidcOptions.SignedOutCallbackPath = new PathString("/signout-agov");
+            oidcOptions.CallbackPath = new PathString("/signin-agov-lab");
+            oidcOptions.RemoteSignOutPath = new PathString("/signout-callback-agov-lab");
+            oidcOptions.SignedOutCallbackPath = new PathString("/signout-agov-lab");
 
             oidcOptions.Scope.Add(OpenIdConnectScope.OpenIdProfile);
             oidcOptions.Scope.Add("agovProfile");
             oidcOptions.Scope.Add(OpenIdConnectScope.Email);
 
-            oidcOptions.Authority = builder.Configuration["agov:Authority"];
-            oidcOptions.ClientId = builder.Configuration["agov:ClientId"];
-            oidcOptions.ClientSecret = builder.Configuration["agov:ClientSecret"];
+            oidcOptions.Authority = builder.Configuration["agovlab:Authority"];
+            oidcOptions.ClientId = builder.Configuration["agovlab:ClientId"];
+            oidcOptions.ClientSecret = builder.Configuration["agovlab:ClientSecret"];
             oidcOptions.ResponseType = OpenIdConnectResponseType.Code;
             oidcOptions.MapInboundClaims = false;
             oidcOptions.SaveTokens = true;
