@@ -11,7 +11,8 @@
 - Can we request phishing resistant authentication
 - Can we use client assertions instead of shared secrets?
 - Which client are E-ID claims
-- Zero knowledge proofs, how will this be supported
+- Zero knowledge proofs, how will this be supported => AGOV
+- Rough timelime
 
 ## LoA with E-ID
 
