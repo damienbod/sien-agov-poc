@@ -10,9 +10,9 @@
 - Can we use OAuth DPoP tokens? => not planned
 - Can we request phishing resistant authentication => not clear yet
 - Can we use client assertions instead of shared secrets? Yes, but not supported at present
-- Which client are E-ID claims => defined in the AGOV specs
-- Zero knowledge proofs, how will this be supported => not planned in AGOV
-- Release around 2027
+- Which client claims returned from AGOV are E-ID claims => defined in the AGOV specs
+- Zero knowledge proofs, how will this be supported in AGOV => not planned in AGOV
+- AGOV support for E-ID: Release around start of 2027
 
 ## LoA with E-ID
 
@@ -22,11 +22,13 @@ urn:qa.agov.ch:names:tc:ac:classes:600 => Only E-ID only claims E-ID AGOV (pass 
 
 ## Authentication flow
 
+confidential client using OpenID Connect code flow with PKCE. Using a shared secret.
+
 ## Registration flow
 
-- same as authentication flow
+- same as authentication flow, AGOV has no state.
 
-### Send 500:
+### Send the AGOV 500 in the arc_values:
 
 AGOV 
 
@@ -40,13 +42,17 @@ Does not work, please create AGOV account first
 
 #### AGOV 600 (pass through)
 
-just works
+just works, only claims from E-ID returned. Not possible to do a Zero knowledge proof.
 
 ## Step Up Flow
+
+As AGOV has no state, this should just work with every challenge.
 
 ## Identity check
 
 ## LoA definitions
+
+Unclear which LoA to use if phishing resistant is required.
 
 - urn:qa.agov.ch:names:tc:ac:classes:100
 - urn:qa.agov.ch:names:tc:ac:classes:200
